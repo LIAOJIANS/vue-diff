@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/javascript" src="./vnode.js"></script>
+<script type="text/javascript">
+let div = createElement('div', { id: 'text' }, [
+  createElement('p', {key: 'a', style: { color: 'blue' }}, '节点1'),
+  createElement('p', {key: 'b', '@click': () => { alert('xxx') }}, '节点2'),
+  createElement('p', {key: 'c'}, '节点3'),
+  createElement('p', {key: 'd'}, '节点4')
+])
+
+render(div, document.getElementById('app'))
+
+let div2 = createElement('div',{ id: 'text' }, [
+  createElement('p', {key: 'd'}, '节点4'),
+  createElement('p', {key: 'a', style: { color: 'red' }}, '节点1'),
+  createElement('p', {key: 'b'}, '节点2'),
+  createElement('p', {key: 'e'}, '节点5'),
+  createElement('p', {key: 'f', style: { color: '#eee' }}, '节点6'),
+  createElement('p', {key: 'g', style: { color: '#999' }}, '节点7')
+])
+
+
+
+setTimeout(() => {
+  render(div2, document.getElementById('app'))
+}, 1000)
+
+</script>
+</body>
+</html>
